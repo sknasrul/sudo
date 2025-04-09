@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Dev Nasrul</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Parkinsans:ital,wght@0,500&display=swap');
+    body{
+        font-family: Parkinsans, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+    header{
+        display:flex;
+        align-items: center;
+        height: 2rem;
+        justify-content:space-between;
+        background: #F0F4F9;
+        font-size: 1.3rem;
+        padding:.7rem;
+        border-radius:2rem;
+        svg:active{height:30px;}
+    }
+    img{
+        width: 8rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+        background-color: red;
+    }
+    #intro{
+        font-size: 2rem;
+        text-align: center;
+        color: #4070F4;
+        margin-top: 1rem;
+        text-shadow: 1.5rem 1rem .5rem rgba(62, 111, 244, .1);
+        font-weight: 500;
+    }
+    #intro::after{
+        content: '|';
+        font-size: 2.5rem;
+        animation: b 1s infinite;
+        font-family: cursive;
+    }
+    @keyframes b {
+        50% { opacity: 0;}
+    }
+    footer{
+        display: flex;
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        align-items: baseline;
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .fire {
+        translate: 0 -1rem;
+filter: blur(0.02em);
+width: 7em;
+img{height: 55px;width: 55px;border-radius: 25%;}
+}
+.particle {
+animation: rise 1s ease-in infinite;
+background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
+border-radius: 50%;
+mix-blend-mode: screen;
+opacity: 0;
+position: absolute;
+width: 2em;
+height: 5em;
+translate: 1.5rem -3.5rem;
+}
+.particle:nth-of-type(1) { animation-delay: 0.8964556822s;left: calc((100% - 5em) * 0); }
+.particle:nth-of-type(2) { animation-delay: 0.2674642467s; left: calc((100% - 5em) * 0.02); }
+.particle:nth-of-type(3) { animation-delay: 0.0130955055s; left: calc((100% - 5em) * 0.04); }
+.particle:nth-of-type(4) { animation-delay: 0.6374304012s; left: calc((100% - 5em) * 0.06); }
+.particle:nth-of-type(5) { animation-delay: 0.0070786102s; left: calc((100% - 5em) * 0.08); }
+.particle:nth-of-type(6) { animation-delay: 0.3244653163s; left: calc((100% - 5em) * 0.1); }
+.particle:nth-of-type(7) { animation-delay: 0.0317888126s; left: calc((100% - 5em) * 0.12); }
+.particle:nth-of-type(8) { animation-delay: 0.0919675473s; left: calc((100% - 5em) * 0.14); }
+.particle:nth-of-type(9) { animation-delay: 0.4425100364s; left: calc((100% - 5em) * 0.16); }
+.particle:nth-of-type(10) { animation-delay: 0.2564813298s; left: calc((100% - 5em) * 0.18); }
+.particle:nth-of-type(11) { animation-delay: 0.8622463143s; left: calc((100% - 5em) * 0.2); }
+.particle:nth-of-type(12) { animation-delay: 0.1931103499s; left: calc((100% - 5em) * 0.22); }
+.particle:nth-of-type(13) { animation-delay: 0.4984542396s; left: calc((100% - 5em) * 0.24); }
+.particle:nth-of-type(14) { animation-delay: 0.8551300846s; left: calc((100% - 5em) * 0.26); }
+.particle:nth-of-type(15) { animation-delay: 0.6293827425s; left: calc((100% - 5em) * 0.28); }
+.particle:nth-of-type(16) { animation-delay: 0.6934984221s; left: calc((100% - 5em) * 0.3); }
+.particle:nth-of-type(17) { animation-delay: 0.3976088555s; left: calc((100% - 5em) * 0.32); }
+.particle:nth-of-type(18) { animation-delay: 0.0988007507s; left: calc((100% - 5em) * 0.34); }
+.particle:nth-of-type(19) { animation-delay: 0.9489184333s; left: calc((100% - 5em) * 0.36); }
+.particle:nth-of-type(20) { animation-delay: 0.9573873417s; left: calc((100% - 5em) * 0.38); }
+.particle:nth-of-type(21) { animation-delay: 0.4630426289s; left: calc((100% - 5em) * 0.4); }
+.particle:nth-of-type(22) { animation-delay: 0.8740087482s; left: calc((100% - 5em) * 0.42); }
+.particle:nth-of-type(23) { animation-delay: 0.8447529336s; left: calc((100% - 5em) * 0.44); }
+.particle:nth-of-type(24) { animation-delay: 0.3033398701s; left: calc((100% - 5em) * 0.46); }
+.particle:nth-of-type(25) { animation-delay: 0.4672828502s; left: calc((100% - 5em) * 0.48); }
+.particle:nth-of-type(26) { animation-delay: 0.1061233532s; left: calc((100% - 5em) * 0.5); }
+.particle:nth-of-type(27) { animation-delay: 0.293952684s; left: calc((100% - 5em) * 0.52); }
+.particle:nth-of-type(28) { animation-delay: 0.9067570302s; left: calc((100% - 5em) * 0.54); }
+.particle:nth-of-type(29) { animation-delay: 0.0812841631s; left: calc((100% - 5em) * 0.56); }
+.particle:nth-of-type(30) { animation-delay: 0.8963511417s; left: calc((100% - 5em) * 0.58); }
+.particle:nth-of-type(31) { animation-delay: 0.3649567632s; left: calc((100% - 5em) * 0.6); }
+.particle:nth-of-type(32) { animation-delay: 0.6688765945s; left: calc((100% - 5em) * 0.62); }
+.particle:nth-of-type(33) { animation-delay: 0.0518810817s; left: calc((100% - 5em) * 0.64); }
+.particle:nth-of-type(34) { animation-delay: 0.2722960905s; left: calc((100% - 5em) * 0.66); }
+.particle:nth-of-type(35) { animation-delay: 0.3308039609s; left: calc((100% - 5em) * 0.68); }
+.particle:nth-of-type(36) { animation-delay: 0.8444291597s; left: calc((100% - 5em) * 0.7); }
+.particle:nth-of-type(37) { animation-delay: 0.0869264372s; left: calc((100% - 5em) * 0.72); }
+.particle:nth-of-type(38) { animation-delay: 0.4824670907s; left: calc((100% - 5em) * 0.74); }
+.particle:nth-of-type(39) { animation-delay: 0.7878800865s; left: calc((100% - 5em) * 0.76); }
+.particle:nth-of-type(40) { animation-delay: 0.6589463969s; left: calc((100% - 5em) * 0.78); }
+.particle:nth-of-type(41) { animation-delay: 0.5118576839s; left: calc((100% - 5em) * 0.8); }
+.particle:nth-of-type(42) { animation-delay: 0.524838101s; left: calc((100% - 5em) * 0.82); }
+.particle:nth-of-type(43) { animation-delay: 0.0768795341s; left: calc((100% - 5em) * 0.84); }
+.particle:nth-of-type(44) { animation-delay: 0.0207970412s; left: calc((100% - 5em) * 0.86); }
+.particle:nth-of-type(45) { animation-delay: 0.4431052873s; left: calc((100% - 5em) * 0.88); }
+.particle:nth-of-type(46) { animation-delay: 0.5174578924s; left: calc((100% - 5em) * 0.9); }
+.particle:nth-of-type(47) { animation-delay: 0.6439312563s; left: calc((100% - 5em) * 0.92); }
+.particle:nth-of-type(48) { animation-delay: 0.3926776347s; left: calc((100% - 5em) * 0.94); }
+.particle:nth-of-type(49) { animation-delay: 0.5524618993s; left: calc((100% - 5em) * 0.96); }
+.particle:nth-of-type(50) { animation-delay: 0.0774379096s; left: calc((100% - 5em) * 0.98); }
+@keyframes rise {
+	from, to { opacity: 0; }
+	25% { opacity: 1; }
+	from { transform: translateY(0) scale(1); }
+	to { transform: translateY(-10em) scale(0); }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <svg onclick="document.body.style.filter = document.body.style.filter ? '' : 'blur(15px)';" width="35" viewBox="0 0 24 24"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1"></path></svg>
+        Dev Nasrul
+        <svg onclick="window.location.href='login'" width="35" viewBox="0 0 24 24"><g fill="#200E32" transform="translate(3 2)"> <ellipse cx="9" cy="5.556" opacity=".4" rx="5.625" ry="5.556"></ellipse> <path d="M17.9902354,16.6757991 L17.9902354,16.6757991 C17.9953097,16.5967226 17.9953097,16.5174327 17.9902354,16.4383562 C17.9679741,16.1461262 17.885058,15.8607505 17.7461199,15.5981735 C17.1993012,14.5296804 15.6662559,14.0456621 14.3870907,13.7716895 C13.4744565,13.5817014 12.5471782,13.4595545 11.6139387,13.4063927 L10.6374767,13.3333333 L10.1980688,13.3333333 L9.6512501,13.3333333 L8.34279105,13.3333333 L7.79597234,13.3333333 L7.35656445,13.3333333 L6.38010248,13.4063927 C5.44686291,13.4595545 4.51958466,13.5817014 3.60695046,13.7716895 C2.32778527,14.0091324 0.794739971,14.5022831 0.247921264,15.5981735 C0.10898315,15.8607505 0.0260670984,16.1461262 0.00380576968,16.4383562 C-0.00126858989,16.5174327 -0.00126858989,16.5967226 0.00380576968,16.6757991 L0.00380576968,16.6757991 C-0.000879294659,16.7548861 -0.000879294659,16.834155 0.00380576968,16.913242 C0.0303656032,17.2029741 0.116574533,17.4851701 0.257685884,17.7442922 C0.804504591,18.8127854 2.33754989,19.2968037 3.61671508,19.5707763 C4.53104892,19.7518719 5.45762024,19.8739256 6.3898671,19.9360731 L7.36632907,20 L7.60067995,20 L7.80573696,20 L10.2078334,20 L10.4128904,20 L10.6472413,20 L11.6237033,19.9360731 C12.5559501,19.8739256 13.4825215,19.7518719 14.3968553,19.5707763 C15.6760205,19.3242009 17.2090658,18.8401826 17.7558845,17.7442922 C17.890425,17.4769528 17.9730826,17.1893744 18,16.8949772 C18.0012406,16.8218031 17.9979804,16.748623 17.9902354,16.6757991 Z"></path></g></svg>
+    </header>
+    <img style="margin-top: 25dvh;" src="https://sknasrul.github.io/nasrul/photo.jpg" alt="photo">
+    <div id="intro"></div>
+    <footer>
+        <img onclick="window.location.href='https://www.facebook.com/profile.php?id=100091639590696'" src="https://play-lh.googleusercontent.com/KCMTYuiTrKom4Vyf0G4foetVOwhKWzNbHWumV73IXexAIy5TTgZipL52WTt8ICL-oIo=s48-rw">
+        <div onclick="window.location.href='https://www.instagram.com/sk_nasrul_islam'" class="fire"><img src="https://play-lh.googleusercontent.com/VRMWkE5p3CkWhJs6nv-9ZsLAs1QOg5ob1_3qg-rckwYW7yp1fMrYZqnEFpk0IoVP4LM=s48-rw"></div>
+    <img onclick="window.location.href='https://wa.me/917074521258'" src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN=w240-h480-rw"></a>
+    </footer>   
+<script>
+    const t = document.getElementById('intro');
+    l = ['Sk Nasrul', 'Sk Nasrul Islam'];
+    let ts = 100, es = 50, pb = 1000, c = 0, i = true, ti = 0, int;
+    function type() {
+        const ct = l[c];
+        if (i) {
+            t.textContent += ct[ti];
+            ti++;
+            if (ti === ct.length) {
+                i = false;
+                setTimeout(() => {
+                    clearInterval(int);
+                    int = setInterval(erase, es);
+                }, pb);
+            }}
+    }
+    function erase() {
+        if (!i) {
+            t.textContent = t.textContent.slice(0, -1);
+            if (t.textContent === '') {
+                clearInterval(int);
+                c = (c + 1) % l.length;
+                ti = 0;
+                i = true;
+                setTimeout(() => {
+                    int = setInterval(type, ts);
+                }, pb);
+            }
+        }
+    }
+    int = setInterval(type, ts);
+
+    const fire = document.querySelector('.fire');
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    fire.appendChild(particle);
+  }
+
+  window.addEventListener('load', function () {
+      document.getElementById('svg').remove();
+      // Show the page content
+      document.getElementById("body").style.display = 'block';
+    });
+</script>
+</body>
+</html>
