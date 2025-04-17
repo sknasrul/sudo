@@ -10,5 +10,3 @@ def index():
 def sudo():
     return render_template('sudo.html')
 @app.route('/photo')
-def photo():
-    return render_template('photo.jpg')
