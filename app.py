@@ -17,8 +17,8 @@ def login():
         otp = str(random.randint(100000, 999999))
 
         # Email setup
-        sender_email = 'youremail@gmail.com'
-        sender_password = 'your_app_password'
+        sender_email = 'devnasruls@gmail.com'
+        sender_password = 'xhzc debk mmzq urfo'
 
         msg = EmailMessage()
         msg['Subject'] = 'Your OTP Code'
