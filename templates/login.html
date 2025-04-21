@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Floating Labels (Name & Email)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parkinsans:ital,wght@0,500&display=swap');
+    body{
+        font-family: Parkinsans, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+        .input-group {
+            position: relative;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        input {
+            width: 100%;
+            aspect-ratio: 6;
+            text-indent: 1em;
+            font-size: 1.3em;
+            border: 2px solid gray;
+            border-radius: 1rem;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        label {
+            position: absolute;
+            left: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            color: gray;
+            background: white;
+            padding: 0 5px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        input:focus ~ label,
+        input:not(:placeholder-shown) ~ label {
+            top: 0;
+            font-size: 14px;
+            color: #4070f4;
+        }
+        input:focus {
+            border-color: #4070f4;
+        }
+        input:focus ~ label::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: white;
+            z-index: -1;
+        }
+        img {
+            height: 5rem;
+            margin: 3rem;
+            border: 5px solid whitesmoke;
+            border-radius: 50%;
+            box-shadow: 5px 5px 5px whitesmoke;
+        }
+        form {
+            margin-top: 30%;
+        }
+        h2 {
+            position: fixed;
+            top: 0;
+            left: 1rem;
+        }
+        
+        button {
+            width: 50%;
+            height: 3.5rem;
+            background-color: #4070f4;
+            color: white;
+            border: none;
+            border-radius: 3rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: .03s;
+        }
+        .ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.6);
+  animation: ripple-effect 0.6s linear;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+    </style>
+</head>
 <body>
-  <h2>Login</h2>
   <form method="POST">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Send OTP</button>
   </form>
+</body>
+</html>
+
+
+
+
+    <form action="" method="post">
+        <h2>Login to Devnasrul</h2>
+<center>
+        <img src="images/favicon.png">
+
+    <div class="input-group">
+        <input type="text" id="name" name="recipient_name" placeholder=" " required>
+        <label for="name">Name</label>
+    </div>
+
+    <div class="input-group">
+        <input type="email" id="email" name="recipient_email" placeholder=" " required>
+        <label for="email">Email</label>
+    </div><br>
+    <button class="ripple-btn" type="submit">Next</button>
+    </form>
+    <script>
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('focus', () => {
+    setTimeout(() => {
+      document.querySelector('button').scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 300);
+  });
+});
+</script>
+
+
+<script>
+    document.querySelectorAll('.ripple-btn').forEach(button => {
+  button.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+    ripple.classList.add('ripple');
+
+    this.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+</script>
 </body>
 </html>
