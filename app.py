@@ -22,7 +22,7 @@ def login():
 
         msg = EmailMessage()
         msg['Subject'] = 'Your OTP Code'
-        msg['From'] = f"MyApp Support <{sender_email}>"
+        msg['From'] = f"Dev Nasrul <{sender_email}>"
         msg['To'] = receiver_email
         msg.set_content(f'Your OTP is: {otp}')
 
