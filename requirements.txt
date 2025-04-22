@@ -1,2 +1,5 @@
 Flask
 gunicorn
+nltk
+scikit-learn
+email-validator
