@@ -1,7 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import smtplib, random
 from email.message import EmailMessage
+import pickle
+import nltk
+from nltk.stem import WordNetLemmatizer
+
 app = Flask(__name__)
+
+# Initialize lemmatizer
+lemmatizer = WordNetLemmatizer()
+
+# Load trained model
+with open("chatbot/model.pkl", "rb") as f:
+    clf, vectorizer, data = pickle.load(f)
 
 @app.route('/')
 def index():
@@ -10,13 +21,13 @@ def index():
 @app.route('/sudo')
 def sudo():
     return render_template('sudo.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         receiver_email = request.form['email']
         otp = str(random.randint(100000, 999999))
 
-        # Email setup
         sender_email = 'devnasruls@gmail.com'
         sender_password = 'xhzc debk mmzq urfo'
 
@@ -35,3 +46,21 @@ def login():
             return f"Error: {str(e)}"
 
     return render_template('login.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_msg = request.form['msg']
+    tokens = nltk.word_tokenize(user_msg)
+    tokens = [lemmatizer.lemmatize(word.lower()) for word in tokens]
+    X = vectorizer.transform([" ".join(tokens)])
+    tag = clf.predict(X)[0]
+
+    for intent in data['intents']:
+        if intent['tag'] == tag:
+            response = random.choice(intent['responses'])
+            return jsonify({'response': response})
+
+    return jsonify({'response': "Sorry, I don't understand that."})
+
+if __name__ == '__main__':
+    app.run(debug=True)
