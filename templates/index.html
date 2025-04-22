@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NLP Chatbot</title>
+    <style>
+      body {
+    font-family: Arial;
+    background: #f0f0f0;
+    padding: 20px;
+}
+.chat-container {
+    width: 400px;
+    margin: auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#chat-box {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2>Chat with AI</h2>
+        <div id="chat-box"></div>
+        <form id="chat-form">
+            <input type="text" name="message" id="message" autocomplete="off" placeholder="Type here...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('chat-form');
+        const chatBox = document.getElementById('chat-box');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const userMsg = document.getElementById("message").value;
+            chatBox.innerHTML += `<p><strong>You:</strong> ${userMsg}</p>`;
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams({ message: userMsg })
+            });
+            const data = await response.json();
+            chatBox.innerHTML += `<p><strong>Bot:</strong> ${data.reply}</p>`;
+            form.reset();
+        };
+    </script>
+</body>
+</html>
