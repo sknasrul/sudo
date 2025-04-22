@@ -1,5 +1,3 @@
-Flask
-gunicorn
-nltk
-scikit-learn
-email-validator
+Flask==2.2.5
+transformers==4.36.2
+torch
