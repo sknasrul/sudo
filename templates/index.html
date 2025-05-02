@@ -65,7 +65,7 @@
         b{
             font-size: 1.3rem;
             position: relative;
-            margin: 3rem;
+            margin: 1rem;
         }
         border-top: 3px solid whitesmoke;
         backdrop-filter: blur(15px);
@@ -165,15 +165,19 @@ window.addEventListener("touchmove", function (e) {
 
   let currentY = e.touches[0].clientY;
   if (currentY > lastTouchY + 10) {
-    onScrollDown();
+    onScrollUp();
     canRun = false;
   } else if (currentY < lastTouchY - 10) {
-    onScrollUp();
+    onScrollDown();
     canRun = false;
   }
 
   setTimeout(() => (canRun = true), 300);
 });
+
+    document.addEventListener('touchmove', function(event) {
+  event.preventDefault();
+}, { passive: false });
 
 </script>
 </body>
