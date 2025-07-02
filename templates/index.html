@@ -79,11 +79,17 @@
         height: 5px;
     }
     .content{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         width: 100%;
+        gap: 10px;
+        margin: auto;
         img{
             width: 3rem;
+            text-align: center;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
         }
     }
 </style>
